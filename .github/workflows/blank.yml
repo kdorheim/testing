@@ -34,7 +34,7 @@ jobs:
       - name: Install dependecy 
         run: | 
           sudo apt install libboost-filesystem-dev libboost-system-dev
-          echo 'did it work'
+          git clone https://github.com/JGCRI/hector.git
           
           
           
