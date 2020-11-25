@@ -34,7 +34,12 @@ jobs:
       - name: Install dependecy 
         run: | 
           sudo apt install libboost-filesystem-dev libboost-system-dev
-                   $BOOSTROOT
+          echo '\n'
+          $BOOSTLIB
+          echo '\n'
+          $BOOSTROOT
+          echo '................'
+          ls
          # git clone https://github.com/JGCRI/hector.git
          # cd ./hector
          # make hector
