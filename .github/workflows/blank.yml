@@ -35,6 +35,7 @@ jobs:
         run: | 
           sudo apt install libboost-filesystem-dev libboost-system-dev
           git clone https://github.com/JGCRI/hector.git
+          make hector
           
           
           
