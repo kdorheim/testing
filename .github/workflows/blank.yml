@@ -32,7 +32,7 @@ jobs:
           BOOSTROOT=/usr/include/x86_64-linux-gnu/
           git clone https://github.com/JGCRI/hector.git
           cd ./hector
-          make hector
+          make hector $@
 
           
           
