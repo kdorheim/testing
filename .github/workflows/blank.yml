@@ -39,9 +39,7 @@ jobs:
          # cd ./hector
          # make hector
         env:
-          ver: `awk '/define.*BOOST_LIB_VERSION/ {print $3}' /usr/include/boost/version.hpp`
           BOOSTLIB: /usr/local/lib
-          BOOSTVERSION: $ver
           BOOSTROOT: /usr/include/boost \
           
           
