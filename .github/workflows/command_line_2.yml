@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: build and run 
         run: | 
-          brew boost install
+          brew install boost
           
           #git clone https://github.com/JGCRI/hector.git
           #cd ./hector
