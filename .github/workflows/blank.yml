@@ -31,9 +31,8 @@ jobs:
           git clone https://github.com/JGCRI/hector.git
           ver=`awk '/define.*BOOST_LIB_VERSION/ {print $3}' /usr/include/boost/version.hpp`
           echo Boost version $ver
-          BOOSTLIB=/usr/local/lib   BOOSTVERSION=$ver   BOOSTROOT=/usr/include/boost \
           cd ./hector
-          make hector $@
+          BOOSTLIB=/usr/local/lib   BOOSTVERSION=$ver   BOOSTROOT=/usr/include/boost make hector
 
           
           
