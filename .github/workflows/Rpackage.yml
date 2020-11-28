@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+name: R package
+jobs: 
+ ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Build R package
+        run: |
+          git clone https://github.com/JGCRI/hector.git
+          install.packages(c('remotes', 'ggplot2', 'devtools'))
+          remotes::install_deps(dependencies = TRUE)
+          devtools::build(vignettes = FALSE)
+    
+
