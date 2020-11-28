@@ -22,13 +22,21 @@ jobs:
       - name: build and run 
         run: | 
           brew install boost
-          
-          #git clone https://github.com/JGCRI/hector.git
-          #cd ./hector
-          
-          #ver=`awk '/define.*BOOST_LIB_VERSION/ {print $3}' /usr/include/boost/version.hpp`
+          ver=`ls /usr/local/Cellar/boost/`
           echo Boost version $ver
-
+          
+          git clone https://github.com/JGCRI/hector.git
+          cd ./hector
+          
+          BOOST=/usr/local/Cellar/boost
+          
+          echo listing what is in boostlib
+          ls $BOOST/$ver/lib
+          
+          echo listing what is in boost root
+          ls $BOOST/$ver/include/boost
+          
+ 
           # Build the Hector executable 
           #BOOSTLIB=/usr/local/lib   BOOSTVERSION=$ver   BOOSTROOT=/usr/include/boost make hector
           # Run a Hector ini  
