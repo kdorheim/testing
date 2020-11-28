@@ -15,17 +15,14 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  build_ubuntu:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-          
-      # Install dependencies 
-      - name: Install dependecy 
+      - name: test on ubuntu
         run: | 
           sudo apt install libboost-filesystem-dev libboost-system-dev
           git clone https://github.com/JGCRI/hector.git
@@ -36,8 +33,21 @@ jobs:
           BOOSTLIB=/usr/local/lib   BOOSTVERSION=$ver   BOOSTROOT=/usr/include/boost make hector
           # Run a Hector ini  
           ./src/hector ./inst/input/hector_rcp45.ini
-          # Run the Hector test script 
-          bash ./test_hector.sh ./src/hector
+          ## Run the Hector test script 
+          # bash ./test_hector.sh ./src/hector
+    build_mac:
+      runs_on: macos-11.0
+          steps:
+                - uses: actions/checkout@v2
+                - name: test on macos 
+        run: |
+          brew install boost 
+          ls /usr/local/Cellar/boost/
+                  
+    
+    
+     
+    
           
           
           
