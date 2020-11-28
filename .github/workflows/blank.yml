@@ -32,8 +32,12 @@ jobs:
           ver=`awk '/define.*BOOST_LIB_VERSION/ {print $3}' /usr/include/boost/version.hpp`
           echo Boost version $ver
           cd ./hector
+          # Build the Hector executable 
           BOOSTLIB=/usr/local/lib   BOOSTVERSION=$ver   BOOSTROOT=/usr/include/boost make hector
-
+          # Run a Hector ini  
+          ./src/hector ./inst/input/hector_rcp45.ini
+          # Run the Hector test script 
+          bash ./test_hector.sh ./src/hector
           
           
           
