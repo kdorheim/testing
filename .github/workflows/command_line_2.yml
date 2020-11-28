@@ -25,21 +25,14 @@ jobs:
           ver=`ls /usr/local/Cellar/boost/`
           echo Boost version $ver
           
+          # Dowload Hector, this is not needed for the actual one
           git clone https://github.com/JGCRI/hector.git
           cd ./hector
           
-          BOOST=/usr/local/Cellar/boost
-          
-          echo listing what is in boostlib
-          ls $BOOST/$ver/lib
-          
-          echo listing what is in boost root
-          ls $BOOST/$ver/include/boost
-          
- 
-          # Build the Hector executable 
-          #BOOSTLIB=/usr/local/lib   BOOSTVERSION=$ver   BOOSTROOT=/usr/include/boost make hector
+          # Build the Hector executable, provide the links to boost libs
+          BOOST=/usr/local/Cellar/boost 
+          BOOSTLIB=$BOOST/$ver/lib BOOSTROOT=$BOOST/$ver/include/boost make hector
           # Run a Hector ini  
-          #./src/hector ./inst/input/hector_rcp45.ini
+          ./src/hector ./inst/input/hector_rcp45.ini
           ## Run the Hector test script 
           # bash ./test_hector.sh ./src/hector
