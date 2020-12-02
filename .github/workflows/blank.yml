@@ -59,7 +59,7 @@ jobs:
           # Run a Hector ini  
           ./src/hector ./inst/input/hector_rcp45.ini
           ## Run the Hector test script 
-          # bash ./test_hector.sh ./src/hector
+          bash ./test_hector.sh ./src/hector
 
                   
     
